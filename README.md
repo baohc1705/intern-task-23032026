@@ -1,4 +1,4 @@
-#Task-23032026: Product Service
+# Task-23032026: Product Service
 ## Giới thiệu
 Đây là ứng dụng cơ bản **quản lý sản phẩm** xây dựng bằng **Spring Boot + Thymeleaf**.
 Ứng dụng cho phép người dùng sử dụng các chức năng thêm, xóa, sửa cơ bản.
@@ -24,20 +24,24 @@
 ---
 ## Cách chạy
 ### 1. Clone project
-```bash
+```
 git clone https://github.com/baohc1705/intern-task-23032026.git
 ```
 ### 2. Định nghĩa file cấu hình
-``` datasource:
-    	url: "jdbc:mysql://localhost:3306/yourdb"
-    	username: "yourusername"
-	password: "yourpassword"
+```
+datasource:
+ url: "jdbc:mysql://localhost:3306/yourdb"
+ username: "yourusername"
+ password: "yourpassword"
 ```
 ### 3. Chạy Maven
-``` mvn spring-boot:run ```
+```
+ mvn spring-boot:run 
+```
 
 ### 4. Mở trình duyệt
-``` http://localhost:8080/products ```
+``` http://localhost:8080/products 
+```
 
 ---
 ## Tác giả
