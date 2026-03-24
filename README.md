@@ -1,7 +1,6 @@
 # Task-23032026: Product Service
 ## Giới thiệu
-Đây là ứng dụng cơ bản **quản lý sản phẩm** xây dựng bằng **Spring Boot + Thymeleaf**.
-Ứng dụng cho phép người dùng sử dụng các chức năng thêm, xóa, sửa cơ bản.
+Đây là ứng dụng cơ bản **quản lý sản phẩm** xây dựng bằng **Spring Boot + Thymeleaf**. Ứng dụng cho phép người dùng sử dụng các chức năng thêm, xóa, sửa cơ bản.
 
 ---
 ## Tech-stack
@@ -22,6 +21,15 @@
 - Validation các trường trong quá trình thêm và xóa
 
 ---
+## Cơ sở dữ liệu
+![dbproduct](https://github.com/baohc1705/intern-task-23032026/blob/main/Screenshot/db.png)
+
+---
+## ScreenShot
+- Home page
+![homepage](https://github.com/baohc1705/intern-task-23032026/blob/main/Screenshot/homepage.png)
+
+---
 ## Cách chạy
 ### 1. Clone project
 ```
@@ -40,7 +48,8 @@ datasource:
 ```
 
 ### 4. Mở trình duyệt
-``` http://localhost:8080/products 
+``` 
+http://localhost:8080/products
 ```
 
 ---
