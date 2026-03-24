@@ -3,36 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <title>Product Management</title>
-</head>
-<body>
-<h1>List Product</h1>
-<a th:href="@{/add-product}">Add new product</a>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Order</th>
-            <th>Active</th>
-            <th colspan="2">Action</th>
-        </tr>
-    </thead>
 
-    <tbody>
-        <tr th:if="${products == null or #lists.isEmpty(products)}">
-            <td colspan="6">
-                List product is empty
-            </td>
-        </tr>
-        <tr th:each="product:${products}">
-            <td th:text="${product.id}"></td>
-            <td th:text="${product.name}"></td>
-            <td th:text="${product.pro_order}"></td>
-            <td th:text="${product.is_active}"></td>
-            <td><a th:href="@{/remove(id=${product.id})}" onclick="return confirm('Are you sure you want to remove this product?')">Remove</a></td>
-            <td><a th:href="@{/edit(id=${product.id})}">Edit</a></td>
-        </tr>
-    </tbody>
-</table>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <h1 class="mb-4 text-center">Product Management</h1>
+
+    <!-- Add button -->
+    <div class="d-flex justify-content-between mb-3">
+        <h4>Product List</h4>
+        <a th:href="@{/add-product}" class="btn btn-success">
+            + Add Product
+        </a>
+    </div>
+
+    <!-- Table -->
+    <div class="card shadow">
+        <div class="card-body">
+
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Order</th>
+                    <th>Status</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <!-- Empty -->
+                <tr th:if="${products == null or #lists.isEmpty(products)}">
+                    <td colspan="6" class="text-danger fw-bold">
+                        No products found
+                    </td>
+                </tr>
+
+                <!-- Data -->
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.pro_order}"></td>
+
+                    <!-- Status badge -->
+                    <td>
+                        <span th:if="${product.is_active}" class="badge bg-success">Active</span>
+                        <span th:unless="${product.is_active}" class="badge bg-secondary">Inactive</span>
+                    </td>
+
+                    <!-- Actions -->
+                    <td>
+                        <a th:href="@{/edit(id=${product.id})}"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+                    </td>
+
+                    <td>
+                        <a th:href="@{/remove(id=${product.id})}"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Are you sure you want to remove this product?')">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
