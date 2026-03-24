@@ -1,10 +1,13 @@
 package com.baohc.ProductService.controller;
 
+import com.baohc.ProductService.entity.Product;
 import com.baohc.ProductService.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ProductController {
@@ -16,5 +19,19 @@ public class ProductController {
         model.addAttribute("products", productService.getProducts());
         return "products";
     }
+
+    @GetMapping("/add-product")
+    public String getAddProductForm(Model model) {
+        model.addAttribute("product", new Product());
+        return "add-product";
+    }
+
+    @PostMapping("/save")
+    public String save(@ModelAttribute("product") Product product) {
+        productService.save(product);
+        return "redirect:/";
+    }
+
+
 
 }
