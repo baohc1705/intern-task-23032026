@@ -13,20 +13,20 @@ public class Product {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "proOrder")
-    private int proOrder;
+    @Column(name = "pro_order")
+    private int pro_order;
 
-    @Column(name = "isActive")
-    private boolean isActive;
+    @Column(name = "is_active")
+    private boolean is_active;
 
     public Product() {
     }
 
-    public Product(int id, String name, int proOrder, boolean isActive) {
+    public Product(int id, String name, int pro_order, boolean is_active) {
         this.id = id;
         this.name = name;
-        this.proOrder = proOrder;
-        this.isActive = isActive;
+        this.pro_order = pro_order;
+        this.is_active = is_active;
     }
 
     public int getId() {
@@ -45,20 +45,20 @@ public class Product {
         this.name = name;
     }
 
-    public int getProOrder() {
-        return proOrder;
+    public int getPro_order() {
+        return pro_order;
     }
 
-    public void setProOrder(int proOrder) {
-        this.proOrder = proOrder;
+    public void setPro_order(int pro_order) {
+        this.pro_order = pro_order;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public boolean isIs_active() {
+        return is_active;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setIs_active(boolean is_active) {
+        this.is_active = is_active;
     }
 
     @Override
@@ -66,8 +66,8 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", proOrder=" + proOrder +
-                ", isActive=" + isActive +
+                ", pro_order=" + pro_order +
+                ", is_active=" + is_active +
                 '}';
     }
 }
