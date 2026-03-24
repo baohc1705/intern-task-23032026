@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+</head>
+<body>
+<h1>List Product</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Order</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="product:${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.pro_order}"></td>
+            <td th:text="${product.is_active}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
