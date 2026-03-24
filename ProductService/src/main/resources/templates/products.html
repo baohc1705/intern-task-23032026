@@ -14,15 +14,23 @@
             <th>Name</th>
             <th>Order</th>
             <th>Active</th>
+            <th colspan="2">Action</th>
         </tr>
     </thead>
 
     <tbody>
+        <tr th:if="${products == null or #lists.isEmpty(products)}">
+            <td colspan="6">
+                List product is empty
+            </td>
+        </tr>
         <tr th:each="product:${products}">
             <td th:text="${product.id}"></td>
             <td th:text="${product.name}"></td>
             <td th:text="${product.pro_order}"></td>
             <td th:text="${product.is_active}"></td>
+            <td><a th:href="@{/remove(id=${product.id})}" onclick="return confirm('Are you sure you want to remove this product?')">Remove</a></td>
+            <td><a href="">Edit</a></td>
         </tr>
     </tbody>
 </table>

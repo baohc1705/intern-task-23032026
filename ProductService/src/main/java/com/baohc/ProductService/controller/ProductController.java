@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProductController {
@@ -32,6 +33,9 @@ public class ProductController {
         return "redirect:/";
     }
 
-
-
+    @GetMapping("/remove")
+    public String deleteById(@RequestParam("id") int id) {
+        productService.deleteById(id);
+        return "redirect:/";
+    }
 }

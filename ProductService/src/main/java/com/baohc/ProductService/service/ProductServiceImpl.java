@@ -36,4 +36,14 @@ public class ProductServiceImpl implements ProductService {
             throw new RuntimeException("Gặp lỗi trong quá trình thêm xuống db");
         }
     }
+
+    @Override
+    public void deleteById(int id) {
+        try {
+            productRepository.deleteById(id);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Lỗi trong quá trình xóa theo ID");
+        }
+    }
 }

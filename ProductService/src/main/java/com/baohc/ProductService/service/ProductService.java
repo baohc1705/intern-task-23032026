@@ -8,4 +8,6 @@ public interface ProductService {
     List<Product> getProducts();
 
     Product save(Product product);
+
+    void deleteById(int id);
 }
