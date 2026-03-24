@@ -30,7 +30,7 @@
             <td th:text="${product.pro_order}"></td>
             <td th:text="${product.is_active}"></td>
             <td><a th:href="@{/remove(id=${product.id})}" onclick="return confirm('Are you sure you want to remove this product?')">Remove</a></td>
-            <td><a href="">Edit</a></td>
+            <td><a th:href="@{/edit(id=${product.id})}">Edit</a></td>
         </tr>
     </tbody>
 </table>

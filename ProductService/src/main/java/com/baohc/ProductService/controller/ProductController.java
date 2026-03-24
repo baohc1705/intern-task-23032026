@@ -38,4 +38,10 @@ public class ProductController {
         productService.deleteById(id);
         return "redirect:/";
     }
+
+    @GetMapping("/edit")
+    public String getEditForm(@RequestParam("id") int id, Model model) {
+        model.addAttribute("product", productService.findById(id));
+        return "edit-product";
+    }
 }

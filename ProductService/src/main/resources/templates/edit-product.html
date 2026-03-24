@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add product</title>
+    <title>Edit product</title>
 </head>
 <body>
-<h1>Add new product</h1>
+<h1>Edit product</h1>
 <form th:action="@{/save}" th:object="${product}" method="post">
+    <input type="hidden" th:field="*{id}">
     <div>
         <label>Name:</label>
         <input type="text" th:field="*{name}">
     </div>
-
     <div>
         <label>Order:</label>
         <input type="number" th:field="*{pro_order}">
@@ -20,7 +20,7 @@
         <label>Active:</label>
         <input type="checkbox" th:field="*{is_active}">
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit">Save</button>
 </form>
 <a th:href="@{/}">Back</a>
 </body>

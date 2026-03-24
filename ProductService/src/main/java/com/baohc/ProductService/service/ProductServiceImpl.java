@@ -46,4 +46,10 @@ public class ProductServiceImpl implements ProductService {
             throw new RuntimeException("Lỗi trong quá trình xóa theo ID");
         }
     }
+
+    @Override
+    public Product findById(int id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy product với id: " + id));
+    }
 }
