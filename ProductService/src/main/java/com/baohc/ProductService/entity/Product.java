@@ -1,6 +1,7 @@
 package com.baohc.ProductService.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "product")
@@ -10,9 +11,12 @@ public class Product {
     @Column(name = "id")
     private int id;
 
+    @NotBlank(message = "Tên không được để trống")
+    @Size(max = 64, message = "Tên không quá 64 ký tự")
     @Column(name = "name")
     private String name;
 
+    @Min(value = 1, message = "Giá trị nên lớn hơn 0")
     @Column(name = "pro_order")
     private int pro_order;
 

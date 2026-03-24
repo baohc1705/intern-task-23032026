@@ -2,9 +2,11 @@ package com.baohc.ProductService.controller;
 
 import com.baohc.ProductService.entity.Product;
 import com.baohc.ProductService.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +30,16 @@ public class ProductController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("product") Product product) {
+    public String save(@Valid @ModelAttribute("product") Product product, BindingResult result) {
+
+        if (result.hasErrors()) {
+            // Trở về trang edit nếu request có id
+            if (product.getId() != 0) {
+                return "edit-product";
+            }
+            return "add-product";
+        }
+
         productService.save(product);
         return "redirect:/";
     }
